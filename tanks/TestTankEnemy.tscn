@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tanks/TestTankBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tanks/TestTankEnemy.cs" type="Script" id=2]
+
+[node name="TestTankEnemy" instance=ExtResource( 1 )]
+
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="Body" parent="." index="0"]
+
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+
