@@ -35,8 +35,12 @@ public class TestBullet : Area2D
     
     private void _on_Bullet_body_entered(Godot.Object body)
     {
-        var target = body as Node2D; 
-        Explode();
+        var target = body as Node2D;
+        if (target.Name == "TestTankPlayer")
+        {
+            Explode();
+            GD.Print("Explosion");
+        }
     }
 
     private void _on_BulletTimer_timeout()

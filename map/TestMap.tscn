@@ -67,6 +67,7 @@ lookahead = 4.0
 position = Vector2( -180.224, 321.413 )
 _sections_unfolded = [ "Collision", "Transform" ]
 Bullet = ExtResource( 4 )
+Speed = 75
 
 [node name="Tree" type="StaticBody2D" parent="." index="2"]
 
