@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://tanks/TestTankEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Spritesheet/allSprites_retina_rotated.png" type="Texture" id=3]
-[ext_resource path="res://tanks/TestTankPlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://map/TestMap.cs" type="Script" id=1]
+[ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://tanks/TestTankEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://bullet/TestBullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Spritesheet/allSprites_retina_rotated.png" type="Texture" id=5]
+[ext_resource path="res://tanks/TestTankPlayer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -19,11 +21,13 @@ radius = 70.0071
 
 [node name="Node2D" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
+
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 position = Vector2( 0, 2 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -58,10 +62,11 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="TestTankEnemy" parent="Path2D/PathFollow2D" index="0" instance=ExtResource( 2 )]
+[node name="TestTankEnemy" parent="Path2D/PathFollow2D" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( -180.224, 321.413 )
 _sections_unfolded = [ "Collision", "Transform" ]
+Bullet = ExtResource( 4 )
 
 [node name="Tree" type="StaticBody2D" parent="." index="2"]
 
@@ -78,7 +83,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="Sprite" type="Sprite" parent="Tree" index="0"]
 
 position = Vector2( 568, 307 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 513, 868.138, 127, 127 )
 _sections_unfolded = [ "Region" ]
@@ -88,9 +93,11 @@ _sections_unfolded = [ "Region" ]
 position = Vector2( 568, 307 )
 shape = SubResource( 2 )
 
-[node name="TestTankPlayer" parent="." index="3" instance=ExtResource( 4 )]
+[node name="TestTankPlayer" parent="." index="3" instance=ExtResource( 6 )]
 
 collision_layer = 2
 collision_mask = 5
+
+[connection signal="Shoot" from="Path2D/PathFollow2D/TestTankEnemy" to="." method="_on_TestTankEnemy_Shoot"]
 
 

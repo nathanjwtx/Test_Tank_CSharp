@@ -12,7 +12,6 @@ public class TestTankEnemy : TestTankBase
         Parent = GetParent();
         GunTimer = (Timer) GetNode("Timer");
         GunTimer.Start();
-        Speed = 200;
     }
 
     public override void _PhysicsProcess(float delta)

@@ -11,7 +11,7 @@ public class TestBullet : Area2D
 
     public override void _Ready()
     {
-        _timer = (Timer) GetNode("Lifetime");
+        _timer = (Timer) GetNode("BulletTimer");
     }
 
     public void Start(Vector2 _position, Vector2 _direction)
@@ -39,7 +39,7 @@ public class TestBullet : Area2D
         Explode();
     }
 
-    private void _on_Lifetime_timeout()
+    private void _on_BulletTimer_timeout()
     {
         Explode();
     }
