@@ -4,3 +4,6 @@ I was having difficulty converting KidsCanCode's tank Battle from GDScript into 
 
 KidsCanCode YouTube Tutorial series:
 https://www.youtube.com/watch?v=sQ1FpD0DYF8&t=
+
+Artwork by Kenney:
+http://www.kenney.nl/assets/topdown-tanks-redux
